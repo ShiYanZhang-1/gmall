@@ -1,9 +1,11 @@
 package top.shiyana.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.oyyo.core.bean.PageVo;
 import com.oyyo.core.bean.QueryCondition;
 import com.oyyo.core.bean.Resp;
@@ -14,6 +16,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import top.shiyana.gmall.pms.entity.SkuInfoEntity;
+import top.shiyana.gmall.pms.entity.SpuInfoEntity;
 import top.shiyana.gmall.pms.service.SkuInfoService;
 
 
@@ -32,6 +35,12 @@ import top.shiyana.gmall.pms.service.SkuInfoService;
 public class SkuInfoController {
     @Autowired
     private SkuInfoService skuInfoService;
+
+    @GetMapping("{SpuId}")
+    public Resp<List<SkuInfoEntity>> querySpuInfoBySpuId(@PathVariable("SpuId")Long SpuId){
+        List<SkuInfoEntity> list = skuInfoService.list(new QueryWrapper<SkuInfoEntity>().eq("spu_id", SpuId));
+        return Resp.ok(list);
+    }
 
     /**
      * 列表

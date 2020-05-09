@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import top.shiyana.gmall.pms.entity.SpuInfoEntity;
 import top.shiyana.gmall.pms.service.SpuInfoService;
-
-
+import top.shiyana.gmall.pms.vo.SpuIInfoVO;
 
 
 /**
@@ -33,6 +32,12 @@ public class SpuInfoController {
     @Autowired
     private SpuInfoService spuInfoService;
 
+
+    @GetMapping
+    public Resp<PageVo> querySpuPage(QueryCondition condition,@RequestParam("catId") Long catId){
+        PageVo pageVo = spuInfoService.querySpuPage(condition,catId);
+        return Resp.ok(pageVo);
+    }
     /**
      * 列表
      */
@@ -64,8 +69,8 @@ public class SpuInfoController {
     @ApiOperation("保存")
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('pms:spuinfo:save')")
-    public Resp<Object> save(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.save(spuInfo);
+    public Resp<Object> save(@RequestBody SpuIInfoVO spuInfo){
+		spuInfoService.bigSave(spuInfo);
 
         return Resp.ok(null);
     }

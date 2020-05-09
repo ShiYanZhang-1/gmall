@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import top.shiyana.gmall.pms.entity.SpuInfoEntity;
 import com.oyyo.core.bean.PageVo;
 import com.oyyo.core.bean.QueryCondition;
+import top.shiyana.gmall.pms.vo.SpuIInfoVO;
 
 
 /**
@@ -16,5 +17,9 @@ import com.oyyo.core.bean.QueryCondition;
 public interface SpuInfoService extends IService<SpuInfoEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    PageVo querySpuPage(QueryCondition condition, Long catId);
+
+    void bigSave(SpuIInfoVO spuInfo);
 }
 

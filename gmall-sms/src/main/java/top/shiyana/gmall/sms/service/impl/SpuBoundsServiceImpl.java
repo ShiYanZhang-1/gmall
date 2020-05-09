@@ -1,6 +1,9 @@
 package top.shiyana.gmall.sms.service.impl;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -10,8 +13,10 @@ import com.oyyo.core.bean.Query;
 import com.oyyo.core.bean.QueryCondition;
 
 import top.shiyana.gmall.sms.dao.SpuBoundsDao;
+import top.shiyana.gmall.sms.entity.SkuBoundsEntity;
 import top.shiyana.gmall.sms.entity.SpuBoundsEntity;
 import top.shiyana.gmall.sms.service.SpuBoundsService;
+import top.shiyana.gmall.sms.vo.SkuSaleVO;
 
 
 @Service("spuBoundsService")
@@ -26,5 +31,6 @@ public class SpuBoundsServiceImpl extends ServiceImpl<SpuBoundsDao, SpuBoundsEnt
 
         return new PageVo(page);
     }
+
 
 }

@@ -5,6 +5,8 @@ import top.shiyana.gmall.pms.entity.AttrAttrgroupRelationEntity;
 import com.oyyo.core.bean.PageVo;
 import com.oyyo.core.bean.QueryCondition;
 
+import java.util.List;
+
 
 /**
  * 属性&属性分组关联
@@ -16,5 +18,7 @@ import com.oyyo.core.bean.QueryCondition;
 public interface AttrAttrgroupRelationService extends IService<AttrAttrgroupRelationEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    void removeRelations(List<AttrAttrgroupRelationEntity> relations);
 }
 

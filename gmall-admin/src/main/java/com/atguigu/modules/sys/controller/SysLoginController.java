@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) 2016-2019 谷粒开源 All rights reserved.
+ *
+ * https://www.guli.cloud
+ *
+ * 版权所有，侵权必究！
+ */
+
+package com.atguigu.modules.sys.controller;
 
 import com.atguigu.common.utils.R;
 import com.atguigu.modules.sys.entity.SysUserEntity;
@@ -12,7 +21,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import top.shiyana.modules.sys.controller.AbstractController;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;

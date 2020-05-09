@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import top.shiyana.gmall.sms.entity.SkuBoundsEntity;
 import top.shiyana.gmall.sms.service.SkuBoundsService;
-
-
+import top.shiyana.gmall.sms.vo.SkuSaleVO;
 
 
 /**
@@ -32,6 +31,13 @@ import top.shiyana.gmall.sms.service.SkuBoundsService;
 public class SkuBoundsController {
     @Autowired
     private SkuBoundsService skuBoundsService;
+
+
+    @PostMapping("sku/sale/save")
+    public Resp<Object> saveSale(@RequestBody SkuSaleVO skuSaleVO){
+        skuBoundsService.saveSale(skuSaleVO);
+        return Resp.ok(null);
+    }
 
     /**
      * 列表

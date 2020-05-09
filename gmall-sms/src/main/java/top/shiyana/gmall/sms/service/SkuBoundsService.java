@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import top.shiyana.gmall.sms.entity.SkuBoundsEntity;
 import com.oyyo.core.bean.PageVo;
 import com.oyyo.core.bean.QueryCondition;
+import top.shiyana.gmall.sms.vo.SkuSaleVO;
 
 
 /**
@@ -16,5 +17,7 @@ import com.oyyo.core.bean.QueryCondition;
 public interface SkuBoundsService extends IService<SkuBoundsEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    void saveSale(SkuSaleVO skuSaleVO);
 }
 

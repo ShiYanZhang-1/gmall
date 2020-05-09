@@ -1,6 +1,7 @@
 package top.shiyana.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -15,8 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import top.shiyana.gmall.pms.entity.AttrGroupEntity;
 import top.shiyana.gmall.pms.service.AttrGroupService;
-
-
+import top.shiyana.gmall.pms.vo.GroupVO;
 
 
 /**
@@ -32,6 +32,27 @@ import top.shiyana.gmall.pms.service.AttrGroupService;
 public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
+
+    @GetMapping("withattr/{gid}")
+    public Resp<GroupVO> queryGroupWithAttrsByGid(@PathVariable("gid") Long gid){
+        GroupVO groupVO = attrGroupService.queryGroupWithAttrsByGid(gid);
+        return Resp.ok(groupVO);
+    }
+
+    @GetMapping("withattrs/cat/{catId}")
+    public Resp<List<GroupVO>> queryGroupsByCatId(@PathVariable("catId") Long catId){
+        List<GroupVO> list = attrGroupService.queryGroupsByCatId(catId);
+        return Resp.ok(list);
+
+    }
+
+    @GetMapping("{catId}")
+    public Resp<PageVo> queryAttrGroupListPages(QueryCondition condition,@PathVariable(value = "catId") Long catId){
+
+        PageVo pageVo = attrGroupService.queryAttrGroupListPages(condition,catId);
+
+        return Resp.ok(pageVo);
+    }
 
     /**
      * 列表

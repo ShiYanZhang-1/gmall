@@ -1,9 +1,11 @@
 package top.shiyana.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.oyyo.core.bean.PageVo;
 import com.oyyo.core.bean.QueryCondition;
 import com.oyyo.core.bean.Resp;
@@ -33,6 +35,23 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+
+    @GetMapping
+    public Resp<List<CategoryEntity>> queryCategoriesBylevelOrParentCid(@RequestParam(value = "level",defaultValue = "0") Integer level,
+                                                                        @RequestParam(value = "parentCid",required = false)Long parentCid){
+
+        QueryWrapper<CategoryEntity> wrapper = new QueryWrapper<>();
+        if(level != 0){
+            wrapper.eq("cat_level", level);
+        }
+
+        if (parentCid != null) {
+            wrapper.eq("parent_cid", parentCid);
+        }
+        List<CategoryEntity> list = categoryService.list(wrapper);
+        return Resp.ok(list);
+    }
+
     /**
      * 列表
      */
@@ -53,7 +72,7 @@ public class CategoryController {
     @GetMapping("/info/{catId}")
     @PreAuthorize("hasAuthority('pms:category:info')")
     public Resp<CategoryEntity> info(@PathVariable("catId") Long catId){
-		CategoryEntity category = categoryService.getById(catId);
+        CategoryEntity category = categoryService.getById(catId);
 
         return Resp.ok(category);
     }
@@ -69,6 +88,7 @@ public class CategoryController {
 
         return Resp.ok(null);
     }
+
 
     /**
      * 修改

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import top.shiyana.gmall.sms.entity.SpuBoundsEntity;
 import com.oyyo.core.bean.PageVo;
 import com.oyyo.core.bean.QueryCondition;
+import top.shiyana.gmall.sms.vo.SkuSaleVO;
 
 
 /**
@@ -16,5 +17,6 @@ import com.oyyo.core.bean.QueryCondition;
 public interface SpuBoundsService extends IService<SpuBoundsEntity> {
 
     PageVo queryPage(QueryCondition params);
+
 }
 

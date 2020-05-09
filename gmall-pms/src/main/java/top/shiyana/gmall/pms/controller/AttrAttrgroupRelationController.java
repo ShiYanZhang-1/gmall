@@ -1,6 +1,7 @@
 package top.shiyana.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -33,6 +34,12 @@ public class AttrAttrgroupRelationController {
     @Autowired
     private AttrAttrgroupRelationService attrAttrgroupRelationService;
 
+
+    @PostMapping("/delete/attr")
+    public Resp<String> removeRelations(@RequestBody List<AttrAttrgroupRelationEntity> relations){
+        attrAttrgroupRelationService.removeRelations(relations);
+        return Resp.ok("删除成功！！！");
+    }
     /**
      * 列表
      */

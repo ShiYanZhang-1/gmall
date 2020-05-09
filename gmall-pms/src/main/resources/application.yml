@@ -17,3 +17,6 @@ mybatis-plus:
     db-config:
       id-type: auto
   mapper-locations: classpath:mapper/pms/**/*.xml
+logging:
+  level:
+    top.shiyana.gmall.pms.dao: DEBUG

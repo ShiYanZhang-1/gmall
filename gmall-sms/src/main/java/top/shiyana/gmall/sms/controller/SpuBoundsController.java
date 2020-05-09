@@ -1,7 +1,6 @@
 package top.shiyana.gmall.sms.controller;
 
 import java.util.Arrays;
-import java.util.Map;
 
 
 import com.oyyo.core.bean.PageVo;
@@ -17,8 +16,6 @@ import top.shiyana.gmall.sms.entity.SpuBoundsEntity;
 import top.shiyana.gmall.sms.service.SpuBoundsService;
 
 
-
-
 /**
  * 商品spu积分设置
  *
@@ -32,6 +29,7 @@ import top.shiyana.gmall.sms.service.SpuBoundsService;
 public class SpuBoundsController {
     @Autowired
     private SpuBoundsService spuBoundsService;
+
 
     /**
      * 列表

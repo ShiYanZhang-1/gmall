@@ -6,6 +6,7 @@
  * 版权所有，侵权必究！
  */
 
+package com.atguigu.modules.sys.controller;
 
 import com.atguigu.common.annotation.SysLog;
 import com.atguigu.common.utils.Constant;
@@ -18,7 +19,6 @@ import com.atguigu.modules.sys.service.SysRoleService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.shiyana.modules.sys.controller.AbstractController;
 
 import java.util.HashMap;
 import java.util.List;

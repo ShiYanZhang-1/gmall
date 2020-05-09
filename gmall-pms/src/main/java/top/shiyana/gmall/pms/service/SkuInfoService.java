@@ -16,5 +16,6 @@ import com.oyyo.core.bean.QueryCondition;
 public interface SkuInfoService extends IService<SkuInfoEntity> {
 
     PageVo queryPage(QueryCondition params);
+
 }
 

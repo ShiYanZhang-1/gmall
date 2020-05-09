@@ -1,6 +1,7 @@
 package top.shiyana.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import top.shiyana.gmall.pms.entity.AttrEntity;
 import top.shiyana.gmall.pms.service.AttrService;
-
-
+import top.shiyana.gmall.pms.vo.AttrVO;
+import top.shiyana.gmall.pms.vo.GroupVO;
 
 
 /**
@@ -32,6 +33,17 @@ import top.shiyana.gmall.pms.service.AttrService;
 public class AttrController {
     @Autowired
     private AttrService attrService;
+
+    @GetMapping
+    public Resp<PageVo> queryAttrsByCid(QueryCondition condition,
+                                        @RequestParam("cid")Long cid,
+                                        @RequestParam(value = "type",defaultValue = "1")Integer type){
+        PageVo page = attrService.queryAttrsByCid(condition,cid,type);
+
+        return Resp.ok(page);
+    }
+
+
 
     /**
      * 列表
@@ -64,9 +76,8 @@ public class AttrController {
     @ApiOperation("保存")
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('pms:attr:save')")
-    public Resp<Object> save(@RequestBody AttrEntity attr){
-		attrService.save(attr);
-
+    public Resp<Object> save(@RequestBody AttrVO attr){
+		attrService.saveAttr(attr);
         return Resp.ok(null);
     }
 
