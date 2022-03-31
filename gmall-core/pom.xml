@@ -18,7 +18,7 @@
         <swagger.version>2.9.2</swagger.version>
         <lombok.version>1.18.12</lombok.version>
         <security.version>2.2.6.RELEASE</security.version>
-        <web.version>2.2.6.RELEASE</web.version>
+        <web.version>2.5.12</web.version>
     </properties>
 
     <dependencies>
