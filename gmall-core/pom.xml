@@ -14,7 +14,7 @@
     <properties>
         <mybatisplus.version>3.3.1</mybatisplus.version>
         <nacos.version>2.2.0.RELEASE</nacos.version>
-        <mysql.version>8.0.19</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <swagger.version>2.9.2</swagger.version>
         <lombok.version>1.18.12</lombok.version>
         <security.version>2.2.6.RELEASE</security.version>
